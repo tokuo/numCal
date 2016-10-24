@@ -1,39 +1,22 @@
 #include<stdio.h>
 #include<stdlib.h>
 
-
+//[S] [P]
 double df(double s){
   return -s/(1.1 + s);
 }
 
-/*
-double dff(double s,double e){
-  if(s < e){
-    return s/10;
-  }else{
-    return e/10;
-  }
-}
-*/
-
+//[E]
 double dfe(double s,double e,double es){
   return es/10 - s*e + es;
 }
 
+//[ES]
 double dfes(double s,double e,double es){
   return s*e - es/10 - es;
 }
 
-/*
-double dfs(double s,double e,double es){
-  return es/10 - s*e;
-}
-
-double dfp(double es){
-  return es;
-}
-*/
-
+//オイラー法
 void euler(double starts,double invaltime,double endtime){
   double s=starts,t=0,e=1,es=0,p=0,e2,es2;
   FILE *fp;
@@ -55,35 +38,6 @@ void euler(double starts,double invaltime,double endtime){
   }
   fclose(fp);
 }
-
-/*
-void euler(double starts,double invaltime,double endtime){
-  double s=starts,t=0,e=1,es=0,p=0,ee;
-  ee = e;
-  es = dff(s,e);
-  s = s - es;
-  e = e - es;
-  FILE *fp;
-  if ((fp = fopen("plot3.txt", "w")) == NULL) {
-    printf("file open error!!\n");
-  }
-  while(1){
-    if(endtime <= t){
-      break;
-    }
-    s = s + invaltime*df(s);
-    if(s < es){
-      es = s;
-      e = ee - es;
-    }
-    p = p + -invaltime*df(s);
-    t += invaltime;
-    fprintf(fp,"%f\t%f\t%f\t%f\t%f\n",t,s,e,es,p);
-  }
-  fclose(fp);
-}
-*/
-
 
 /*
 void runge_kutta(double startx,double invaltime,double endtime){
