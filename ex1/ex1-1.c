@@ -17,7 +17,7 @@ double df2(double x){
 
 //絶対値
 double check(double num){
-  if(ans < 0){
+  if(num < 0){
     return -num;
   }
   return num;
@@ -60,9 +60,11 @@ void bidis(double startx,double endx,double dif){
 
 
 int main(void){
-  double startx=-4;　//探索初期値
-  //double endx=10;　//二分探索法用の２つ目の探索初期値
-  double dif=0.000001;　//終了条件
+  double startx=-4;
+//探索初期値
+  //double endx=10;　2分探索法用の２つ目の探索初期値
+  double dif=0.000001;
+//終了条件
   newton(startx,dif);
   //bidis(startx,endx,dif);
   return 0;

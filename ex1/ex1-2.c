@@ -15,7 +15,7 @@ double df2(double x){
 
 //絶対値
 double check(double num){
-  if(ans < 0){
+  if(num < 0){
     return -num;
   }
   return num;
