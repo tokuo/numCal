@@ -6,6 +6,7 @@
 int main(void){
   int i,j;
   double x[102][102],x2[102][102],y[102][102],y2[102][102],t=0,end_t=50,inval_t=0.002,dx=0.05,Dx=0.01,Dy=0.05,a=2,b=4;
+  //xの刻み幅とyの刻み幅は同じとするためdyは記述していません
   FILE *f;
   
   if ((f = fopen("plot6_2-4.txt", "w")) == NULL) {
@@ -33,6 +34,7 @@ int main(void){
     }
     for(i=1;i<101;i++){
       for(j=1;j<101;j++){
+        //dy == dx なので式を省略
 	x2[i][j] = a - b*x[i][j] + x[i][j]*x[i][j]*y[i][j] - x[i][j] + Dx*(x[i-1][j] - 2*x[i][j] + x[i+1][j] + x[i][j-1] -2*x[i][j] + x[i][j+1])/(dx*dx);
 	y2[i][j] = b*x[i][j] - x[i][j]*x[i][j]*y[i][j] + Dy*(y[i-1][j] -2*y[i][j] + y[i+1][j] + y[i][j-1] -2*y[i][j] + y[i][j+1])/(dx*dx);
       }}
