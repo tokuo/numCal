@@ -21,7 +21,7 @@ int main(void){
     x[0][i] = x[1][i];
     x[101][i] = x[100][i];
     x[i][0] = x[i][1];
-    x[i][101] = x[i][101];
+    x[i][101] = x[i][100];
     y[0][i] = y[1][i];
     y[101][i] = y[100][i];
     y[i][0] = y[i][1];
@@ -48,9 +48,10 @@ int main(void){
     }
     //euler
     for(i=0;i<102;i++){
-      x[i][j] = x[i][j] + inval_t*x2[i][j];
-      y[i][j] = y[i][j] + inval_t*y2[i][j];
-    }
+	for(j=0;j<102;j++){
+      	  x[i][j] = x[i][j] + inval_t*x2[i][j];
+      	  y[i][j] = y[i][j] + inval_t*y2[i][j];
+    }}
     t += inval_t;
   }
   
